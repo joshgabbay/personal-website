@@ -21,6 +21,9 @@ const CursorParticles = dynamic(() => import("@/components/CursorParticles"), { 
 const AnimatedTitle = dynamic(() => import("@/components/AnimatedTitle"), { ssr: false });
 const CommandPalette = dynamic(() => import("@/components/CommandPalette"), { ssr: false });
 
+// Set to false to restore the site
+const UNDER_CONSTRUCTION = true;
+
 const sectionIds = ["hero", "projects", "about", "contact"];
 
 export default function Home() {
@@ -48,6 +51,23 @@ export default function Home() {
       }
     }
   });
+
+  if (UNDER_CONSTRUCTION) {
+    return (
+      <div style={{
+        position: "fixed",
+        inset: 0,
+        background: "#ffffff",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}>
+        <p style={{ color: "#000000", fontSize: 18, fontFamily: "sans-serif" }}>
+          Under Construction
+        </p>
+      </div>
+    );
+  }
 
   return (
     <>
