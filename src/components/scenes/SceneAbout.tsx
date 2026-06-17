@@ -3,7 +3,6 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import CinematicText from "../CinematicText";
-import WordReveal from "../WordReveal";
 
 const techStack = [
   "TypeScript", "React", "Next.js", "React Native", "Node.js", "Supabase",
@@ -19,13 +18,6 @@ const floatPositions = [
   { x: "40%", y: "92%" }, { x: "78%", y: "82%" },
 ];
 
-const interests = [
-  { label: "Swimming", icon: "🏊" },
-  { label: "Movies", icon: "🎬" },
-  { label: "Travel", icon: "✈️" },
-  { label: "Sushi", icon: "🍣" },
-  { label: "My dog", icon: "🐕" },
-];
 
 function AnimatedNumber({ target, suffix, active, delay }: { target: number; suffix: string; active: boolean; delay: number }) {
   const [count, setCount] = useState(0);
@@ -121,7 +113,7 @@ export default function SceneAbout() {
             display: "flex",
             alignItems: "center",
             gap: 24,
-            marginBottom: 28,
+            marginBottom: 0,
           }}>
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -167,56 +159,6 @@ export default function SceneAbout() {
             </div>
           </div>
 
-          <WordReveal
-            text="I'm the kind of person who notices when something doesn't work and can't stop thinking about it until I've built something better. That's how all my projects started. I'd see students struggling with something that should be simple, and I'd go build the fix."
-            delay={0.4}
-            style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.05rem)", color: "#a1a1aa", lineHeight: 1.8, marginBottom: 20 }}
-          />
-          <WordReveal
-            text="I love learning new things, whether that's a new framework or a new city to explore. When I'm not building, you can probably find me in the pool, at the movies, or eating sushi."
-            delay={1.0}
-            style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.05rem)", color: "#a1a1aa", lineHeight: 1.8, marginBottom: 28 }}
-          />
-
-          {/* Interests */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 28 }}>
-            {interests.map((item, i) => (
-              <motion.span
-                key={item.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={bioInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: 1.6 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 6,
-                  padding: "6px 14px",
-                  borderRadius: 9999,
-                  border: "1px solid rgba(255, 255, 255, 0.06)",
-                  fontSize: 13,
-                  color: "#71717a",
-                }}
-              >
-                <span>{item.icon}</span>
-                {item.label}
-              </motion.span>
-            ))}
-          </div>
-
-          <WordReveal
-            text={"\u201CThe best way to predict the future is to invent it.\u201D"}
-            delay={2.0}
-            style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.05rem)", color: "#52525b", lineHeight: 1.8, fontStyle: "italic" }}
-          />
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={bioInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5, delay: 2.5 }}
-            style={{ display: "block", marginTop: 4, fontSize: 13, color: "#52525b" }}
-          >
-            - Alan Kay
-          </motion.span>
-
           <motion.a
             href="/resume.pdf"
             target="_blank"
@@ -224,14 +166,14 @@ export default function SceneAbout() {
             data-hover
             initial={{ opacity: 0, y: 10 }}
             animate={bioInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 2.2 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             style={{
               display: "inline-flex",
               alignItems: "center",
               gap: 10,
-              marginTop: 28,
+              marginTop: 0,
               padding: "12px 24px",
               borderRadius: 10,
               border: "1px solid rgba(99, 102, 241, 0.3)",
