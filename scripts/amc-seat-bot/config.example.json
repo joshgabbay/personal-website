@@ -1,0 +1,11 @@
+{
+  "showtimeId": "144851950",
+  "provider": "amc-api",
+  "intervalSeconds": 60,
+  "jitterSeconds": 10,
+  "notifyFirst": false,
+  "desktop": false,
+
+  "_comment": "Copy this to config.json and edit. Secrets (vendorKey, webhook URLs, tokens) are better placed in .env — see .env.example. seatingLayoutUrl is an optional override if auto-discovery of the seat endpoint fails; paste the exact URL you see in your browser's DevTools Network tab.",
+  "seatingLayoutUrl": ""
+}
