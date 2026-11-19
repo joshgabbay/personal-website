@@ -11,7 +11,15 @@ const nextConfig: NextConfig = {
           destination: "/meet",
         },
       ],
-      afterFiles: [],
+      // jgabbay.com/leads is the private leads dashboard. It runs as its own Vercel
+      // project (jgabbay-leads) so its data and password stay out of this public repo.
+      afterFiles: [
+        { source: "/leads", destination: "https://jgabbay-leads.vercel.app/leads" },
+        {
+          source: "/leads/:path*",
+          destination: "https://jgabbay-leads.vercel.app/leads/:path*",
+        },
+      ],
       fallback: [],
     };
   },
